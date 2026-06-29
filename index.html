@@ -164,8 +164,11 @@ footer{background:var(--stage-1);border-top:1px solid var(--hair-2);padding:64px
 .fcol a:hover{color:var(--brass)}
 .fbrand .logo{margin-bottom:14px}
 .fbrand p{font-size:.9rem;color:var(--cream-faint);max-width:34ch}
-.fbot{border-top:1px solid var(--hair-2);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem;color:var(--cream-faint)}
+.fbot{border-top:1px solid var(--hair-2);padding-top:26px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px;font-size:.82rem;color:var(--cream-faint)}
 .fbot .mono{font-family:var(--mono)}
+.fcompany{display:flex;flex-direction:column;gap:4px;max-width:62ch}
+.fcompany .cname{font-weight:600;color:var(--cream-soft);letter-spacing:.02em}
+.fcompany .mono{font-family:var(--mono);font-size:.76rem;letter-spacing:.01em}
 
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
@@ -569,7 +572,7 @@ em{font-style:normal}
         </div>
       </div>
       <div class="frame">
-        <img src="assets/painel-roas.jpg" alt="Baton dashboard: overview with today's spend, pending approvals, and real ROAS with dedup." width="940" height="576" loading="lazy" decoding="async" />
+        <img src="assets/painel-roas.jpg" alt="Baton dashboard: overview with today's spend, pending approvals, and real ROAS with dedup." width="940" height="817" loading="lazy" decoding="async" />
       </div>
     </div>
   </div>
@@ -697,14 +700,19 @@ em{font-style:normal}
       </div>
       <div class="fcol">
         <h5>Contact</h5>
-        <a href="mailto:hello@baton.ai">hello@baton.ai</a>
+        <a href="mailto:help@batoncode.com">help@batoncode.com</a>
         <a href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
         <a href="#">Slack</a>
         <a href="#contato">Agencies</a>
       </div>
     </div>
     <div class="fbot">
-      <span>© 2026 Baton, Inc. Built in Brazil.</span>
+      <div class="fcompany">
+        <span class="cname">STELLAR PRINT DIGITAL INK COMÉRCIO LTDA</span>
+        <span class="mono">CNPJ 53.864.784/0001-62</span>
+        <span class="mono">R. Christina Rebello Priess, 28 · Box 71 · Dom Bosco · Itajaí — SC · CEP 88.307-113</span>
+      </div>
+      <span>© 2026 Baton. Built in Brazil.</span>
     </div>
   </div>
 </footer>
