@@ -1,27 +1,27 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Batuta — Painel</title>
+<title>Baton — Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400..800&family=Spline+Sans+Mono:wght@400..600&display=swap" rel="stylesheet" />
 <style>
 :root{
-  /* "A Partitura" — sala de concerto */
-  --stage:#1F1813;        /* palco: espresso quente, não navy */
-  --stage-2:#271F18;      /* madeira do estrado */
-  --paper:#ECE5D3;        /* papel de partitura */
-  --paper-2:#E3DAC4;      /* sombra do papel */
-  --ink:#241D15;          /* tinta sobre papel */
-  --ink-soft:#5C5142;     /* tinta esmaecida */
-  --line:#C9BEA3;         /* pauta / hairline no papel */
-  --brass:#BE8C36;        /* latão: o SEU limite, os sopros */
+  /* "The Score" — concert hall */
+  --stage:#1F1813;        /* stage: warm espresso, not navy */
+  --stage-2:#271F18;      /* the platform's wood */
+  --paper:#ECE5D3;        /* score paper */
+  --paper-2:#E3DAC4;      /* paper shadow */
+  --ink:#241D15;          /* ink on paper */
+  --ink-soft:#5C5142;     /* faded ink */
+  --line:#C9BEA3;         /* staff / hairline on paper */
+  --brass:#BE8C36;        /* brass: YOUR limit, the winds */
   --brass-2:#9C7128;
-  --wine:#9A3A40;         /* vinho: passou da barra */
-  --verdigris:#5C8A6F;    /* verdete: ação liberada do agente */
-  --cream:#EAE2CF;        /* texto sobre o palco */
+  --wine:#9A3A40;         /* wine: past the bar */
+  --verdigris:#5C8A6F;    /* verdigris: agent action cleared */
+  --cream:#EAE2CF;        /* text on the stage */
   --cream-soft:#A99E86;
   --hair-dark:rgba(234,226,207,.10);
   --serif:'Schibsted Grotesk',system-ui,sans-serif;
@@ -34,7 +34,7 @@ html,body{background:var(--stage);color:var(--cream);font-family:var(--grotesk);
 .serif{font-family:var(--serif)}
 .mono{font-family:var(--mono)}
 
-/* marca de ato / dinâmica — estrutura que significa algo (o "movimento" da peça) */
+/* act / dynamic mark — structure that means something (the "movement" of the piece) */
 .eyebrow{font-family:var(--mono);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:500}
 
 /* ---- shell ---- */
@@ -142,7 +142,7 @@ em{font-style:normal}
 </style>
 </head>
 <body>
-<div class="banner">Prévia · o painel roda em Next.js (<b>pnpm dev:web</b>). A pauta de dinâmica abaixo é viva — mexa nos valores.</div>
+<div class="banner">Preview · the dashboard runs on Next.js (<b>pnpm dev:web</b>). The dynamics staff below is live — try changing the values.</div>
 <div class="shell">
   <aside class="side">
     <div class="brand">
@@ -153,41 +153,41 @@ em{font-style:normal}
         <line x1="6" y1="21" x2="20" y2="5" stroke="#ECE5D3" stroke-width="2.4" stroke-linecap="round"/>
         <circle cx="20" cy="5" r="2.6" fill="#BE8C36"/>
       </svg>
-      <span class="name">Batut<em>a</em></span>
+      <span class="name">Bato<em>n</em></span>
     </div>
-    <div class="brand-tag">O AGENTE TOCA · A BATUTA É SUA</div>
+    <div class="brand-tag">THE AGENT PLAYS · YOU HOLD THE BATON</div>
     <nav class="nav" id="nav">
-      <button data-sec="cofre" class="active"><span class="num">I</span> O Cofre</button>
-      <button data-sec="overview"><span class="num">II</span> Visão geral</button>
-      <button data-sec="conectar"><span class="num">III</span> Naipes</button>
-      <button data-sec="aprovacoes"><span class="num">IV</span> Aprovações</button>
-      <button data-sec="auditoria"><span class="num">V</span> A partitura</button>
+      <button data-sec="cofre" class="active"><span class="num">I</span> The Vault</button>
+      <button data-sec="overview"><span class="num">II</span> Overview</button>
+      <button data-sec="conectar"><span class="num">III</span> Sections</button>
+      <button data-sec="aprovacoes"><span class="num">IV</span> Approvals</button>
+      <button data-sec="auditoria"><span class="num">V</span> The score</button>
     </nav>
-    <div class="foot"><a href="/index.html" target="_blank">Ver a landing <span>→</span></a></div>
+    <div class="foot"><a href="/index.html" target="_blank">View the landing page <span>→</span></a></div>
   </aside>
 
   <main class="main">
-    <!-- I · O COFRE (showpiece) -->
+    <!-- I · THE VAULT (showpiece) -->
     <section class="section active" id="cofre">
-      <div class="kicker"><span class="eyebrow">Ato I · Dinâmica</span></div>
-      <h1 class="page-h">O <em>Cofre</em></h1>
-      <p class="page-sub">Você marca a dinâmica máxima — o <em>fortississimo</em> que o agente não ultrapassa. Não é um aviso; é a barra de compasso. Mexa abaixo e veja a nota andar pela pauta.</p>
+      <div class="kicker"><span class="eyebrow">Act I · Dynamics</span></div>
+      <h1 class="page-h">The <em>Vault</em></h1>
+      <p class="page-sub">You set the maximum dynamic — the <em>fortississimo</em> the agent never exceeds. It's not a warning; it's the barline. Change the values below and watch the note move across the staff.</p>
 
       <div class="score">
         <div class="score-top">
           <div>
-            <div class="lbl">Conta em regência</div>
+            <div class="lbl">Account under baton</div>
             <div class="acct">Google Ads · g-123-456-7890</div>
           </div>
-          <div class="dynamic" id="dynamic">ff<span class="verd" id="verdWord">dentro do compasso</span></div>
+          <div class="dynamic" id="dynamic">ff<span class="verd" id="verdWord">within the bar</span></div>
         </div>
 
         <div class="stave">
           <div class="lines"><i></i><i></i><i></i><i></i><i></i></div>
           <div class="marks" id="marks">
             <div class="nogo" id="nogo"></div>
-            <div class="tick" id="tickSpent" title="já gasto hoje"></div>
-            <div class="barline" id="barline"><span class="cap" id="barCap">fff<small>SEU TETO</small></span></div>
+            <div class="tick" id="tickSpent" title="already spent today"></div>
+            <div class="barline" id="barline"><span class="cap" id="barCap">fff<small>YOUR CEILING</small></span></div>
             <div class="note" id="note"></div>
           </div>
         </div>
@@ -196,118 +196,118 @@ em{font-style:normal}
       </div>
 
       <div class="staff-card">
-        <div class="card-h">Os limites desta conta</div>
+        <div class="card-h">This account's limits</div>
         <div class="ctl">
-          <div><div class="lab">Teto de gasto diário <span class="serif" style="font-style:normal;color:var(--brass-2)">(fff)</span></div><div class="sub">O ponto onde o agente para a batida.</div></div>
-          <div class="field"><span class="cur">R$</span><input type="number" id="ceiling" value="1200" min="0" step="10"></div>
+          <div><div class="lab">Daily spend ceiling <span class="serif" style="font-style:normal;color:var(--brass-2)">(fff)</span></div><div class="sub">The point where the agent stops the beat.</div></div>
+          <div class="field"><span class="cur">$</span><input type="number" id="ceiling" value="1200" min="0" step="10"></div>
         </div>
         <div class="ctl">
-          <div><div class="lab">Máximo por jogada</div><div class="sub">Uma só ação acima disto sobe pra você.</div></div>
-          <div class="field"><span class="cur">R$</span><input type="number" id="perAction" value="500" min="0" step="10"></div>
+          <div><div class="lab">Max per move</div><div class="sub">Any single action above this comes up to you.</div></div>
+          <div class="field"><span class="cur">$</span><input type="number" id="perAction" value="500" min="0" step="10"></div>
         </div>
         <div class="ctl">
-          <div><div class="lab">Gatilho de aprovação</div><div class="sub">Aumentos acima disto pedem seu aval, mesmo dentro do teto.</div></div>
-          <div class="field"><span class="cur">R$</span><input type="number" id="approvalOver" value="300" min="0" step="10"></div>
+          <div><div class="lab">Approval trigger</div><div class="sub">Increases above this need your sign-off, even within the ceiling.</div></div>
+          <div class="field"><span class="cur">$</span><input type="number" id="approvalOver" value="300" min="0" step="10"></div>
         </div>
         <div class="ctl">
-          <div><div class="lab">Cortes pedem aprovação</div><div class="sub">Excluir campanha sempre passa por você. Reversível.</div></div>
+          <div><div class="lab">Cuts need approval</div><div class="sub">Deleting a campaign always goes through you. Reversible.</div></div>
           <div class="toggle on" id="destructive" role="switch" aria-checked="true" tabindex="0"><span class="knob"></span></div>
         </div>
       </div>
 
       <div class="staff-card">
-        <div class="card-h">Ensaiar uma ação do agente</div>
+        <div class="card-h">Rehearse an agent action</div>
         <div class="ctl">
-          <div><div class="lab">Já gasto hoje</div><div class="sub">Vem do snapshot das plataformas.</div></div>
-          <div class="field"><span class="cur">R$</span><input type="number" id="spent" value="1040" min="0" step="10"></div>
+          <div><div class="lab">Already spent today</div><div class="sub">Comes from the platforms' snapshot.</div></div>
+          <div class="field"><span class="cur">$</span><input type="number" id="spent" value="1040" min="0" step="10"></div>
         </div>
         <div class="ctl">
-          <div><div class="lab">Aumento que o agente quer</div><div class="sub">Quanto a ação soma ao gasto do dia.</div></div>
-          <div class="field"><span class="cur">R$</span><input type="number" id="delta" value="200" min="0" step="10"></div>
+          <div><div class="lab">Increase the agent wants</div><div class="sub">How much the action adds to today's spend.</div></div>
+          <div class="field"><span class="cur">$</span><input type="number" id="delta" value="200" min="0" step="10"></div>
         </div>
       </div>
 
       <div class="actions">
-        <button class="btn btn-primary">Marcar a dinâmica</button>
-        <button class="btn btn-ghost" onclick="resetCofre()">Voltar ao padrão</button>
+        <button class="btn btn-primary">Set the dynamic</button>
+        <button class="btn btn-ghost" onclick="resetVault()">Reset to default</button>
       </div>
     </section>
 
-    <!-- II · VISÃO GERAL -->
+    <!-- II · OVERVIEW -->
     <section class="section" id="overview">
-      <div class="kicker"><span class="eyebrow">Ato II · A orquestra agora</span></div>
-      <h1 class="page-h">Visão <em>geral</em></h1>
-      <p class="page-sub">O estado da regência numa olhada. O agente toca dentro da dinâmica; o que precisa de você espera em Aprovações.</p>
+      <div class="kicker"><span class="eyebrow">Act II · The orchestra now</span></div>
+      <h1 class="page-h"><em>Overview</em></h1>
+      <p class="page-sub">The state of the conducting at a glance. The agent plays within the dynamic; whatever needs you waits in Approvals.</p>
       <div class="grid2">
-        <div class="dcard"><span class="eyebrow">Gasto hoje</span><div class="statn" style="color:var(--brass)">R$ 1.040</div><div class="hint">de R$ 1.200 — está em <em class="serif" style="font-style:normal">ff</em></div></div>
-        <div class="dcard"><span class="eyebrow">Esperando seu aval</span><div class="statn" style="color:var(--brass)">2</div><div class="hint">jogadas em fermata</div></div>
-        <div class="dcard"><span class="eyebrow">Compassos do agente · 24h</span><div class="statn" style="color:var(--verdigris)">37</div><div class="hint">34 tocados · 3 em espera</div></div>
-        <div class="dcard"><span class="eyebrow">ROAS real · com dedup</span><div class="statn" style="color:var(--verdigris)">2,8×</div><div class="hint">contra 3,9× somando os painéis crus</div></div>
+        <div class="dcard"><span class="eyebrow">Spend today</span><div class="statn" style="color:var(--brass)">$1,040</div><div class="hint">of $1,200 — currently at <em class="serif" style="font-style:normal">ff</em></div></div>
+        <div class="dcard"><span class="eyebrow">Awaiting your sign-off</span><div class="statn" style="color:var(--brass)">2</div><div class="hint">moves on a fermata</div></div>
+        <div class="dcard"><span class="eyebrow">Agent bars · 24h</span><div class="statn" style="color:var(--verdigris)">37</div><div class="hint">34 played · 3 on hold</div></div>
+        <div class="dcard"><span class="eyebrow">Real ROAS · deduplicated</span><div class="statn" style="color:var(--verdigris)">2.8×</div><div class="hint">vs. 3.9× adding the raw dashboards</div></div>
       </div>
       <div class="dcard" style="margin-top:14px">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:18px">
-          <div><div class="lab" style="font-weight:600;font-size:1rem">Comece pela barra de compasso</div><div class="hint" style="margin-top:3px">Marque a dinâmica no Cofre antes de soltar o agente.</div></div>
-          <button class="btn btn-primary" onclick="go('cofre')">Abrir o Cofre</button>
+          <div><div class="lab" style="font-weight:600;font-size:1rem">Start with the barline</div><div class="hint" style="margin-top:3px">Set the dynamic in the Vault before you release the agent.</div></div>
+          <button class="btn btn-primary" onclick="go('cofre')">Open the Vault</button>
         </div>
       </div>
     </section>
 
-    <!-- III · NAIPES (conectar) -->
+    <!-- III · SECTIONS (connect) -->
     <section class="section" id="conectar">
-      <div class="kicker"><span class="eyebrow">Ato III · Os naipes</span></div>
-      <h1 class="page-h">Os <em>naipes</em></h1>
-      <p class="page-sub">Cada plataforma é um naipe da orquestra. A Batuta entra pelo OAuth oficial — você nunca cola um token, e a Batuta nunca toca no seu dinheiro de mídia.</p>
+      <div class="kicker"><span class="eyebrow">Act III · The sections</span></div>
+      <h1 class="page-h">The <em>sections</em></h1>
+      <p class="page-sub">Each platform is a section of the orchestra. Baton connects via official OAuth — you never paste a token, and Baton never touches your media money.</p>
       <div class="grid2">
-        <div class="dcard"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="lab" style="font-weight:600">Google Ads</div><div class="hint">cordas · OAuth oficial</div></div><span class="chip allow">✓ no palco</span></div></div>
-        <div class="dcard"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="lab" style="font-weight:600">Meta Ads</div><div class="hint">metais · 29 ferramentas</div></div><button class="btn btn-ghost" style="padding:8px 16px">Chamar</button></div></div>
-        <div class="dcard"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="lab" style="font-weight:600">TikTok Ads</div><div class="hint">percussão · campanha ponta a ponta</div></div><button class="btn btn-ghost" style="padding:8px 16px">Chamar</button></div></div>
-        <div class="dcard"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="lab" style="font-weight:600">LinkedIn Ads</div><div class="hint">sopros · B2B</div></div><button class="btn btn-ghost" style="padding:8px 16px">Chamar</button></div></div>
+        <div class="dcard"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="lab" style="font-weight:600">Google Ads</div><div class="hint">strings · official OAuth</div></div><span class="chip allow">✓ on stage</span></div></div>
+        <div class="dcard"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="lab" style="font-weight:600">Meta Ads</div><div class="hint">brass · 29 tools</div></div><button class="btn btn-ghost" style="padding:8px 16px">Connect</button></div></div>
+        <div class="dcard"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="lab" style="font-weight:600">TikTok Ads</div><div class="hint">percussion · end-to-end campaigns</div></div><button class="btn btn-ghost" style="padding:8px 16px">Connect</button></div></div>
+        <div class="dcard"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="lab" style="font-weight:600">LinkedIn Ads</div><div class="hint">woodwinds · B2B</div></div><button class="btn btn-ghost" style="padding:8px 16px">Connect</button></div></div>
       </div>
     </section>
 
-    <!-- IV · APROVAÇÕES -->
+    <!-- IV · APPROVALS -->
     <section class="section" id="aprovacoes">
-      <div class="kicker"><span class="eyebrow">Ato IV · Fermatas</span></div>
-      <h1 class="page-h">Aprovações <em>em espera</em></h1>
-      <p class="page-sub">As jogadas que o Cofre segurou. A peça pausa numa fermata até você dar a batida — aprovar, ver o detalhe, ou ignorar.</p>
+      <div class="kicker"><span class="eyebrow">Act IV · Fermatas</span></div>
+      <h1 class="page-h">Approvals <em>on hold</em></h1>
+      <p class="page-sub">The moves the Vault held back. The piece pauses on a fermata until you give the downbeat — approve, see the detail, or dismiss.</p>
       <div class="dcard" style="margin-bottom:14px">
-        <div style="display:flex;gap:10px;align-items:center"><span class="chip hold">𝄐 em fermata</span><span class="mono" style="color:var(--cream-soft);font-size:.78rem">Meta · +R$ 60/dia</span></div>
-        <div class="lab serif" style="margin-top:12px;font-size:1.2rem;font-style:normal">Subir BF01 de R$ 120 para R$ 180</div>
-        <div class="hint" style="margin-top:5px;max-width:54ch">Pacing forte: a campanha esgota cedo. O aumento pede seu aval pela dinâmica marcada.</div>
-        <div style="display:flex;gap:10px;margin-top:18px"><button class="btn btn-primary">Aprovar</button><button class="btn btn-ghost">Ver detalhe</button><button class="btn btn-ghost">Ignorar</button></div>
+        <div style="display:flex;gap:10px;align-items:center"><span class="chip hold">𝄐 on a fermata</span><span class="mono" style="color:var(--cream-soft);font-size:.78rem">Meta · +$60/day</span></div>
+        <div class="lab serif" style="margin-top:12px;font-size:1.2rem;font-style:normal">Raise BF01 from $120 to $180</div>
+        <div class="hint" style="margin-top:5px;max-width:54ch">Strong pacing: the campaign runs out early. The increase needs your sign-off per the dynamic you set.</div>
+        <div style="display:flex;gap:10px;margin-top:18px"><button class="btn btn-primary">Approve</button><button class="btn btn-ghost">See detail</button><button class="btn btn-ghost">Dismiss</button></div>
       </div>
       <div class="dcard">
-        <div style="display:flex;gap:10px;align-items:center"><span class="chip hold">𝄐 em fermata</span><span class="mono" style="color:var(--cream-soft);font-size:.78rem">Google · corte</span></div>
-        <div class="lab serif" style="margin-top:12px;font-size:1.2rem;font-style:normal">Excluir "Teste antigo — 2025"</div>
-        <div class="hint" style="margin-top:5px;max-width:54ch">Corte sempre passa por você. Fica reversível na partitura.</div>
-        <div style="display:flex;gap:10px;margin-top:18px"><button class="btn btn-primary">Aprovar</button><button class="btn btn-ghost">Ver detalhe</button><button class="btn btn-ghost">Ignorar</button></div>
+        <div style="display:flex;gap:10px;align-items:center"><span class="chip hold">𝄐 on a fermata</span><span class="mono" style="color:var(--cream-soft);font-size:.78rem">Google · cut</span></div>
+        <div class="lab serif" style="margin-top:12px;font-size:1.2rem;font-style:normal">Delete "Old test — 2025"</div>
+        <div class="hint" style="margin-top:5px;max-width:54ch">Cuts always go through you. It stays reversible in the score.</div>
+        <div style="display:flex;gap:10px;margin-top:18px"><button class="btn btn-primary">Approve</button><button class="btn btn-ghost">See detail</button><button class="btn btn-ghost">Dismiss</button></div>
       </div>
     </section>
 
-    <!-- V · A PARTITURA (auditoria) -->
+    <!-- V · THE SCORE (audit) -->
     <section class="section" id="auditoria">
-      <div class="kicker"><span class="eyebrow">Ato V · O registro</span></div>
-      <h1 class="page-h">A <em>partitura</em></h1>
-      <p class="page-sub">Cada compasso tocado fica escrito: assinado, encadeado por hash, reversível. Quem mexeu, o que mudou, quando — pronto pra auditoria de cliente e LGPD.</p>
+      <div class="kicker"><span class="eyebrow">Act V · The record</span></div>
+      <h1 class="page-h">The <em>score</em></h1>
+      <p class="page-sub">Every bar played is written down: signed, hash-chained, reversible. Who acted, what changed, when — ready for client audits and compliance.</p>
       <div class="staff-card" style="padding:0">
         <div class="ctl" style="padding:17px 26px">
-          <div style="display:flex;gap:16px;align-items:baseline"><span class="mono" style="color:var(--ink-soft);font-size:.8rem;width:46px">14:02</span><span style="font-size:.95rem"><em class="serif" style="font-style:normal;color:var(--verdigris)">agente</em> pausou ad set fadigado · CPA +41%</span></div>
-          <div style="display:flex;gap:10px;align-items:center"><span class="chip allow">tocado</span><button class="btn btn-ghost" style="padding:6px 13px;font-size:.8rem">desfazer</button></div>
+          <div style="display:flex;gap:16px;align-items:baseline"><span class="mono" style="color:var(--ink-soft);font-size:.8rem;width:46px">14:02</span><span style="font-size:.95rem"><em class="serif" style="font-style:normal;color:var(--verdigris)">agent</em> paused a fatigued ad set · CPA +41%</span></div>
+          <div style="display:flex;gap:10px;align-items:center"><span class="chip allow">played</span><button class="btn btn-ghost" style="padding:6px 13px;font-size:.8rem">undo</button></div>
         </div>
         <div class="ctl" style="padding:17px 26px">
-          <div style="display:flex;gap:16px;align-items:baseline"><span class="mono" style="color:var(--ink-soft);font-size:.8rem;width:46px">13:48</span><span style="font-size:.95rem"><em class="serif" style="font-style:normal;color:var(--brass-2)">você</em> aprovou +R$ 60 em BF01</span></div>
-          <span class="chip allow">tocado</span>
+          <div style="display:flex;gap:16px;align-items:baseline"><span class="mono" style="color:var(--ink-soft);font-size:.8rem;width:46px">13:48</span><span style="font-size:.95rem"><em class="serif" style="font-style:normal;color:var(--brass-2)">you</em> approved +$60 on BF01</span></div>
+          <span class="chip allow">played</span>
         </div>
         <div class="ctl" style="padding:17px 26px">
-          <div style="display:flex;gap:16px;align-items:baseline"><span class="mono" style="color:var(--ink-soft);font-size:.8rem;width:46px">11:20</span><span style="font-size:.95rem"><em class="serif" style="font-style:normal;color:var(--verdigris)">agente</em> tentou +R$ 200 — barrado na barra de compasso</span></div>
-          <span class="chip block">barrado</span>
+          <div style="display:flex;gap:16px;align-items:baseline"><span class="mono" style="color:var(--ink-soft);font-size:.8rem;width:46px">11:20</span><span style="font-size:.95rem"><em class="serif" style="font-style:normal;color:var(--verdigris)">agent</em> tried +$200 — blocked at the barline</span></div>
+          <span class="chip block">blocked</span>
         </div>
         <div class="ctl" style="padding:17px 26px">
-          <div style="display:flex;gap:16px;align-items:baseline"><span class="mono" style="color:var(--ink-soft);font-size:.8rem;width:46px">09:05</span><span style="font-size:.95rem"><em class="serif" style="font-style:normal;color:var(--verdigris)">agente</em> somou 14 palavras negativas em Search</span></div>
-          <div style="display:flex;gap:10px;align-items:center"><span class="chip allow">tocado</span><button class="btn btn-ghost" style="padding:6px 13px;font-size:.8rem">desfazer</button></div>
+          <div style="display:flex;gap:16px;align-items:baseline"><span class="mono" style="color:var(--ink-soft);font-size:.8rem;width:46px">09:05</span><span style="font-size:.95rem"><em class="serif" style="font-style:normal;color:var(--verdigris)">agent</em> added 14 negative keywords on Search</span></div>
+          <div style="display:flex;gap:10px;align-items:center"><span class="chip allow">played</span><button class="btn btn-ghost" style="padding:6px 13px;font-size:.8rem">undo</button></div>
         </div>
       </div>
-      <p class="hint" style="margin-top:16px">Integridade da cadeia <span class="mono" style="color:var(--verdigris)">✓ verificada</span> · 0 compassos adulterados</p>
+      <p class="hint" style="margin-top:16px">Chain integrity <span class="mono" style="color:var(--verdigris)">✓ verified</span> · 0 tampered bars</p>
     </section>
   </main>
 </div>
@@ -327,10 +327,10 @@ function flip(){ tog.classList.toggle('on'); tog.setAttribute('aria-checked', to
 tog.addEventListener('click', flip);
 tog.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();} });
 
-// ---- O Cofre: mesma lógica de @batuta/core (budget-vault), com a pauta de dinâmica ----
-const brl = c => (c/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-const BARLINE_POS = 82;   // a barra de fff fica a 82% da pauta; sobra espaço pro "passou"
-const MARKS = [['pp',.12],['p',.3],['mf',.5],['f',.66],['ff',.82]]; // dinâmicas até o teto
+// ---- The Vault: same logic as @baton/core (budget-vault), with the dynamics staff ----
+const brl = c => (c/100).toLocaleString('en-US',{style:'currency',currency:'USD'});
+const BARLINE_POS = 82;   // the fff barline sits at 82% of the staff; leaves room for "past it"
+const MARKS = [['pp',.12],['p',.3],['mf',.5],['f',.66],['ff',.82]]; // dynamics up to the ceiling
 
 function dynamicLetter(ratio){
   if(ratio<=0) return 'p';
@@ -342,7 +342,7 @@ function dynamicLetter(ratio){
   return 'fff';
 }
 
-// desenha as marcas de dinâmica uma vez
+// draw the dynamic marks once
 (function paintMarks(){
   const wrap = document.getElementById('marks');
   MARKS.forEach(([d,frac])=>{
@@ -365,29 +365,29 @@ function judge(){
 
   let verdict, reason;
   if(delta>0 && projected>ceiling){
-    verdict='block'; reason=`Barrado: iria a ${brl(projected)}, além do teto de ${brl(ceiling)}. Folga: ${brl(headroom)}.`;
+    verdict='block'; reason=`Blocked: would hit ${brl(projected)}, past the ${brl(ceiling)} ceiling. Headroom: ${brl(headroom)}.`;
   } else if(perAct>0 && delta>perAct){
-    verdict='hold'; reason=`Em fermata: o aumento de ${brl(delta)} passa o máximo de ${brl(perAct)} por jogada.`;
+    verdict='hold'; reason=`On a fermata: the ${brl(delta)} increase exceeds the ${brl(perAct)} max per move.`;
   } else if(apprOver>0 && delta>apprOver){
-    verdict='hold'; reason=`Em fermata: acima do gatilho de aprovação (${brl(apprOver)}).`;
+    verdict='hold'; reason=`On a fermata: above the approval trigger (${brl(apprOver)}).`;
   } else {
-    verdict='allow'; reason=`Liberado. Folga restante na conta: ${brl(Math.max(0,ceiling-projected))}.`;
+    verdict='allow'; reason=`Cleared. Remaining headroom on the account: ${brl(Math.max(0,ceiling-projected))}.`;
   }
 
   const C = {
-    allow:{c:'var(--verdigris)', w:'dentro do compasso'},
-    hold: {c:'var(--brass)',     w:'pede sua batida'},
-    block:{c:'var(--wine)',      w:'além da barra'}
+    allow:{c:'var(--verdigris)', w:'within the bar'},
+    hold: {c:'var(--brass)',     w:'needs your downbeat'},
+    block:{c:'var(--wine)',      w:'past the bar'}
   }[verdict];
 
-  // dinâmica grande
+  // large dynamic marking
   const dyn = document.getElementById('dynamic');
   const letter = verdict==='block' ? 'fff' : dynamicLetter(ratio);
   dyn.style.color = C.c;
   dyn.childNodes[0].nodeValue = letter;
   const vw = document.getElementById('verdWord'); vw.textContent = C.w; vw.style.color=C.c;
 
-  // posições na pauta
+  // positions on the staff
   const noteLeft = Math.min(ratio,1.18)*BARLINE_POS;
   document.getElementById('note').style.left = Math.min(noteLeft,99)+'%';
   document.getElementById('note').style.background = C.c;
@@ -403,7 +403,7 @@ function judge(){
   r.style.background = verdict==='allow'?'rgba(92,138,111,.08)':verdict==='hold'?'rgba(190,140,54,.08)':'rgba(154,58,64,.08)';
 }
 ['ceiling','spent','delta','perAction','approvalOver'].forEach(id=>document.getElementById(id).addEventListener('input', judge));
-function resetCofre(){
+function resetVault(){
   ceiling.value=1200; perAction.value=500; approvalOver.value=300; spent.value=1040; delta.value=200; judge();
 }
 judge();

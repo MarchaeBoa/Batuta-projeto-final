@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/painel.html", "destination": "/dashboard.html", "permanent": true },
+    { "source": "/privacidade.html", "destination": "/privacy.html", "permanent": true },
+    { "source": "/termos.html", "destination": "/terms.html", "permanent": true }
+  ]
+}
