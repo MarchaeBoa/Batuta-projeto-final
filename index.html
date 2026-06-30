@@ -31,8 +31,8 @@
   --mono:'Spline Sans Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--stage);color:var(--cream);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth;background:#160F09}
+body{background:transparent;color:var(--cream);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--brass);color:var(--stage)}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
@@ -341,6 +341,65 @@ em{font-style:normal}
   .cstat.wide{grid-column:auto}
   .float-card{display:none}
 }
+
+/* ======================================================================
+   SITE-WIDE GOLDEN DUST BACKGROUND + cinematic photo accents
+   Live canvas particles · CSS photos degrade gracefully if file is absent
+   ====================================================================== */
+.site-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:#160F09}
+.site-bg-base{position:absolute;inset:0;
+  background:
+    radial-gradient(58% 68% at 16% 20%,rgba(201,150,59,.18),transparent 60%),
+    radial-gradient(54% 64% at 86% 84%,rgba(168,120,42,.12),transparent 64%),
+    linear-gradient(180deg,#1B1510,#140E08 58%,#100B06)}
+/* optional photo texture: drop your golden-dust photo at assets/golden-dust.jpg */
+.site-bg-img{position:absolute;inset:-8%;
+  background:url('assets/golden-dust.jpg') center/cover no-repeat;
+  opacity:.24;mix-blend-mode:screen;
+  animation:dustDrift 52s ease-in-out infinite alternate;will-change:transform}
+.site-bg-dust{position:absolute;inset:0;width:100%;height:100%;display:block}
+.site-bg-veil{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(125% 100% at 50% -5%,transparent 52%,rgba(16,11,6,.55) 100%)}
+@keyframes dustDrift{
+  0%{transform:scale(1.05) translate3d(-1.6%,-1.2%,0)}
+  100%{transform:scale(1.13) translate3d(1.6%,1.4%,0)}}
+
+/* let the dust whisper through the previously-opaque sections */
+.virada,.vault,.console-sec{background:rgba(33,26,19,.82)}
+.marquee{background:rgba(33,26,19,.78)}
+footer{background:rgba(33,26,19,.9)}
+
+/* cinematic photo accents — CSS backgrounds, so a missing file just shows nothing */
+.has-accent{position:relative;overflow:hidden}
+.has-accent>.wrap{position:relative;z-index:1}
+.accent{position:absolute;inset:0;z-index:0;pointer-events:none;background-repeat:no-repeat}
+/* "The turn": violin strings, warm in the lower-right */
+.accent-violin{background:url('assets/violin.jpg') center/cover;opacity:.13;
+  -webkit-mask-image:radial-gradient(86% 90% at 86% 82%,#000,transparent 64%);
+          mask-image:radial-gradient(86% 90% at 86% 82%,#000,transparent 64%)}
+/* "Six movements": metronome, anchored right */
+.accent-metro{background:url('assets/metronome.jpg') right center/cover;opacity:.12;
+  -webkit-mask-image:radial-gradient(66% 92% at 90% 50%,#000,transparent 60%);
+          mask-image:radial-gradient(66% 92% at 90% 50%,#000,transparent 60%)}
+
+/* hero: the conductor's hand + baton, anchored right, faded toward the headline */
+.hero-photo{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:url('assets/conductor.jpg') center right/cover no-repeat;opacity:.32;
+  -webkit-mask-image:radial-gradient(116% 116% at 80% 46%,#000 0%,#000 26%,transparent 70%);
+          mask-image:radial-gradient(116% 116% at 80% 46%,#000 0%,#000 26%,transparent 70%);
+  filter:saturate(1.04)}
+@media (max-width:900px){.hero-photo{opacity:.2}}
+
+/* final CTA: the grand empty stage */
+.band.has-accent{padding-top:120px;padding-bottom:120px}
+.accent-stage{background:url('assets/stage.jpg') center/cover;opacity:.46}
+.accent-stage::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(16,11,6,.6),rgba(16,11,6,.42) 40%,rgba(16,11,6,.82))}
+@media (min-width:901px){.accent-stage{background-attachment:fixed}}
+
+@media (prefers-reduced-motion:reduce){
+  .site-bg-img{animation:none}
+}
 </style>
 <script>
   /* enable scroll-reveal only when motion is welcome; otherwise content is shown as-is */
@@ -348,6 +407,13 @@ em{font-style:normal}
 </script>
 </head>
 <body>
+
+<div class="site-bg" aria-hidden="true">
+  <div class="site-bg-base"></div>
+  <div class="site-bg-img"></div>
+  <canvas class="site-bg-dust"></canvas>
+  <div class="site-bg-veil"></div>
+</div>
 
 <nav class="nav">
   <div class="wrap">
@@ -376,6 +442,7 @@ em{font-style:normal}
 <span id="top"></span>
 <header class="hero">
   <div class="hero-bg" aria-hidden="true">
+    <div class="hero-photo"></div>
     <div class="hero-aurora"></div>
     <div class="hero-grid"></div>
     <div class="hero-scan"></div>
@@ -414,7 +481,8 @@ em{font-style:normal}
   </div>
 </div>
 
-<section class="virada sec" id="virada">
+<section class="virada sec has-accent" id="virada">
+  <div class="accent accent-violin" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">April–May 2026</span>
@@ -430,7 +498,8 @@ em{font-style:normal}
   </div>
 </section>
 
-<section class="sec" id="movimentos">
+<section class="sec has-accent" id="movimentos">
+  <div class="accent accent-metro" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-head center reveal">
       <span class="eyebrow">The score</span>
@@ -660,7 +729,8 @@ em{font-style:normal}
   </div>
 </section>
 
-<section class="band" id="contato">
+<section class="band has-accent" id="contato">
+  <div class="accent accent-stage" aria-hidden="true"></div>
   <div class="wrap reveal">
     <span class="eyebrow">Raise the baton</span>
     <h2 class="kh">Let the agent play.<br>The ceiling stays <b>yours</b>.</h2>
@@ -759,6 +829,85 @@ em{font-style:normal}
     });
   }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
   reveals.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<script>
+/* live golden-dust background — GPU-light canvas particles, honors reduced motion */
+(function(){
+  var canvas = document.querySelector('.site-bg-dust');
+  if(!canvas || !canvas.getContext) return;
+  var reduce = false;
+  try{ reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+  var ctx = canvas.getContext('2d');
+  var dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 2));
+  var W = 0, H = 0, parts = [], t = 0, raf = null;
+
+  function R(a, b){ return a + Math.random() * (b - a); }
+
+  function build(){
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.max(36, Math.min(120, Math.round(W * H / 15000)));
+    parts = [];
+    for(var i = 0; i < n; i++){
+      var big = Math.random() < 0.16;
+      parts.push({
+        x: R(0, W), y: R(0, H),
+        r: big ? R(5, 14) : R(0.5, 1.9),
+        a: big ? R(0.04, 0.12) : R(0.18, 0.7),
+        vx: R(-0.06, 0.06), vy: R(-0.16, -0.04),
+        ph: R(0, 6.283), tw: R(0.4, 1.4)
+      });
+    }
+  }
+
+  function dot(p, alpha){
+    var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+    g.addColorStop(0, 'rgba(248,228,168,' + alpha + ')');
+    g.addColorStop(0.5, 'rgba(208,160,72,' + (alpha * 0.7) + ')');
+    g.addColorStop(1, 'rgba(201,150,59,0)');
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
+  }
+
+  function frame(){
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+    for(var i = 0; i < parts.length; i++){
+      var p = parts[i];
+      p.x += p.vx; p.y += p.vy;
+      if(p.y < -20){ p.y = H + 20; p.x = R(0, W); }
+      if(p.x < -20) p.x = W + 20; else if(p.x > W + 20) p.x = -20;
+      dot(p, p.a * (0.6 + 0.4 * Math.sin(t * p.tw + p.ph)));
+    }
+    ctx.globalCompositeOperation = 'source-over';
+    t += 0.016;
+    raf = requestAnimationFrame(frame);
+  }
+
+  function staticFrame(){
+    ctx.clearRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+    for(var i = 0; i < parts.length; i++) dot(parts[i], parts[i].a);
+    ctx.globalCompositeOperation = 'source-over';
+  }
+
+  function start(){ if(raf || reduce) return; raf = requestAnimationFrame(frame); }
+  function stop(){ if(raf){ cancelAnimationFrame(raf); raf = null; } }
+
+  build();
+  if(reduce) staticFrame(); else start();
+
+  var rt;
+  window.addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ build(); if(reduce) staticFrame(); }, 180);
+  });
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden) stop(); else if(!reduce) start();
+  });
 })();
 </script>
 
