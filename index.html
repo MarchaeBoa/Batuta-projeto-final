@@ -16,22 +16,24 @@
 <meta name="twitter:image" content="https://baton.ai/assets/painel-cofre.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --stage:#1B1510; --stage-1:#211A13; --stage-2:#2A2118; --stage-3:#33291D;
-  --paper:#ECE5D3; --paper-2:#E3DAC4;
-  --ink:#221C14;
-  --brass:#C9963B; --brass-2:#A8782A; --brass-glow:rgba(201,150,59,.16);
-  --wine:#9A3A40; --verdigris:#5C8A6F;
-  --cream:#EFE8D6; --cream-soft:#B0A488; --cream-faint:#998B70;
-  --hair:rgba(239,232,214,.12); --hair-2:rgba(239,232,214,.07);
-  --disp:'Schibsted Grotesk',system-ui,sans-serif;
-  --body:'Hanken Grotesk',system-ui,sans-serif;
-  --mono:'Spline Sans Mono',ui-monospace,monospace;
+  --stage:#0A0C0A; --stage-1:#11140F; --stage-2:#171B14; --stage-3:#1F241B;
+  --paper:#ECF1E8; --paper-2:#DDE4D6;
+  --ink:#0C100B;
+  --brass:#C9FF3D; --brass-2:#A6E62C; --brass-glow:rgba(201,255,61,.16);
+  --wine:#FF4D52; --verdigris:#56E0FF;
+  --cream:#ECF1E8; --cream-soft:#99A795; --cream-faint:#6E7D69;
+  --hair:rgba(236,241,232,.12); --hair-2:rgba(236,241,232,.07);
+  --disp:'Clash Display',system-ui,sans-serif;
+  --body:'General Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;background:#160F09}
+html{scroll-behavior:smooth;background:#070907}
 body{background:transparent;color:var(--cream);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--brass);color:var(--stage)}
@@ -41,11 +43,11 @@ a{color:inherit;text-decoration:none}
 .eyebrow{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--brass)}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(27,21,16,.72);border-bottom:1px solid var(--hair-2)}
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(10,12,10,.72);border-bottom:1px solid var(--hair-2)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
 .logo{display:flex;align-items:center;gap:11px}
-.logo .nm{font-family:var(--disp);font-weight:800;font-size:1.35rem;letter-spacing:-.02em}
-.logo .nm b{color:var(--brass);font-weight:800}
+.logo .nm{font-family:var(--disp);font-weight:700;font-size:1.35rem;letter-spacing:-.02em}
+.logo .nm b{color:var(--brass);font-weight:700}
 .nav .links{display:flex;gap:30px;align-items:center}
 .nav .links a{font-size:.92rem;color:var(--cream-soft);font-weight:500;transition:.15s}
 .nav .links a:hover{color:var(--cream)}
@@ -60,27 +62,27 @@ a{color:inherit;text-decoration:none}
 .hero{position:relative;padding:92px 0 70px;text-align:center}
 .hero::before{content:"";position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:780px;height:520px;background:radial-gradient(ellipse at center,var(--brass-glow),transparent 70%);pointer-events:none;filter:blur(8px)}
 .hero .eyebrow{display:inline-block;margin-bottom:24px;animation:rise .7s .05s both}
-.h1{font-family:var(--disp);font-weight:800;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.035em;max-width:16ch;margin:0 auto 22px;animation:rise .7s .12s both}
-.h1 b{color:var(--brass);font-weight:800}
+.h1{font-family:var(--disp);font-weight:700;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.035em;max-width:16ch;margin:0 auto 22px;animation:rise .7s .12s both}
+.h1 b{color:var(--brass);font-weight:700}
 .lede{font-size:clamp(1.05rem,1.7vw,1.28rem);color:var(--cream-soft);max-width:54ch;margin:0 auto 36px;animation:rise .7s .2s both}
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:rise .7s .28s both}
 .hero-note{margin-top:18px;font-family:var(--mono);font-size:.78rem;color:var(--cream-faint);letter-spacing:.02em;animation:rise .7s .34s both}
 
 /* product shot */
 .shot{position:relative;margin:64px auto 0;max-width:1000px;animation:rise .9s .4s both}
-.shot .frame{border-radius:12px;overflow:hidden;border:1px solid var(--hair);box-shadow:0 1px 0 rgba(239,232,214,.05),0 50px 90px -40px rgba(0,0,0,.85);background:var(--stage-2)}
+.shot .frame{border-radius:12px;overflow:hidden;border:1px solid var(--hair);box-shadow:0 1px 0 rgba(236,241,232,.05),0 50px 90px -40px rgba(0,0,0,.85);background:var(--stage-2)}
 .shot .frame img{display:block;width:100%;height:auto}
 .shot .bar{display:flex;align-items:center;gap:7px;padding:12px 16px;background:var(--stage-2);border-bottom:1px solid var(--hair-2)}
 .shot .bar i{width:11px;height:11px;border-radius:50%;background:var(--stage-3)}
 .shot .bar span{margin-left:10px;font-family:var(--mono);font-size:.72rem;color:var(--cream-faint)}
-.shot .tagpill{position:absolute;top:-16px;right:24px;font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--stage);background:var(--brass);padding:7px 13px;border-radius:6px;box-shadow:0 8px 24px -6px rgba(201,150,59,.5)}
+.shot .tagpill{position:absolute;top:-16px;right:24px;font-family:var(--mono);font-size:.72rem;font-weight:600;color:var(--stage);background:var(--brass);padding:7px 13px;border-radius:6px;box-shadow:0 8px 24px -6px rgba(201,255,61,.5)}
 
 /* generic section */
 section{position:relative}
 .sec{padding:92px 0}
 .sec-head{max-width:60ch;margin-bottom:52px}
 .sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
-.kh{font-family:var(--disp);font-weight:800;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.08;letter-spacing:-.03em;margin:14px 0 16px}
+.kh{font-family:var(--disp);font-weight:700;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.08;letter-spacing:-.03em;margin:14px 0 16px}
 .kh b{color:var(--brass)}
 .ksub{font-size:1.08rem;color:var(--cream-soft);max-width:56ch}
 .sec-head.center .ksub{margin-left:auto;margin-right:auto}
@@ -109,12 +111,12 @@ section{position:relative}
 .stave-card{background:var(--paper);color:var(--ink);border-radius:10px;padding:30px 32px;position:relative;box-shadow:0 40px 80px -44px rgba(0,0,0,.8)}
 .stave-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--brass);border-radius:10px 0 0 10px}
 .stave-card .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:26px}
-.stave-card .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#6b6051}
+.stave-card .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#5A6356}
 .stave-card .acct{font-family:var(--disp);font-weight:700;font-size:1.05rem;margin-top:4px;color:var(--ink)}
-.stave-card .dyn{font-family:var(--disp);font-style:normal;font-weight:800;font-size:2.8rem;line-height:.8;color:var(--wine)}
+.stave-card .dyn{font-family:var(--disp);font-style:normal;font-weight:700;font-size:2.8rem;line-height:.8;color:var(--wine)}
 .stave-card .dyn small{display:block;font-style:normal;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--wine);margin-top:8px;text-align:right}
 .svgstave{width:100%;height:auto;display:block}
-.stave-card .read{margin-top:22px;font-family:var(--mono);font-size:.8rem;line-height:1.5;color:var(--wine);background:rgba(154,58,64,.08);border:1px solid var(--wine);border-radius:7px;padding:12px 15px}
+.stave-card .read{margin-top:22px;font-family:var(--mono);font-size:.8rem;line-height:1.5;color:var(--wine);background:rgba(255,77,82,.08);border:1px solid var(--wine);border-radius:7px;padding:12px 15px}
 .vault-list{list-style:none;margin-top:24px}
 .vault-list li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--hair-2)}
 .vault-list li:last-child{border-bottom:none}
@@ -134,7 +136,7 @@ section{position:relative}
 .tier.feat .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--stage);background:var(--brass);padding:5px 12px;border-radius:5px}
 .tier .tn{font-family:var(--disp);font-weight:700;font-size:1.2rem;letter-spacing:-.01em}
 .tier .ts{font-size:.86rem;color:var(--cream-soft);margin:6px 0 18px;min-height:38px}
-.tier .price{font-family:var(--disp);font-weight:800;font-size:2.3rem;letter-spacing:-.03em;line-height:1}
+.tier .price{font-family:var(--disp);font-weight:700;font-size:2.3rem;letter-spacing:-.03em;line-height:1}
 .tier .price small{font-family:var(--body);font-weight:500;font-size:.85rem;color:var(--cream-soft);letter-spacing:0}
 .tier .price.muted{font-size:1.5rem;color:var(--cream-soft)}
 .tier ul{list-style:none;margin:22px 0;display:flex;flex-direction:column;gap:11px;flex:1}
@@ -194,25 +196,25 @@ em{font-style:normal}
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
 .hero-aurora{position:absolute;inset:-25% -15%;
   background:
-    radial-gradient(38% 50% at 20% 28%,rgba(201,150,59,.26),transparent 70%),
-    radial-gradient(34% 46% at 82% 20%,rgba(92,138,111,.18),transparent 72%),
-    radial-gradient(42% 52% at 66% 82%,rgba(154,58,64,.16),transparent 72%);
+    radial-gradient(38% 50% at 20% 28%,rgba(201,255,61,.26),transparent 70%),
+    radial-gradient(34% 46% at 82% 20%,rgba(86,224,255,.18),transparent 72%),
+    radial-gradient(42% 52% at 66% 82%,rgba(255,77,82,.16),transparent 72%);
   filter:blur(16px);animation:auroraDrift 28s ease-in-out infinite alternate;will-change:transform}
 .hero-grid{position:absolute;inset:-2px;opacity:.45;
   background-image:
-    linear-gradient(rgba(239,232,214,.06) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(239,232,214,.06) 1px,transparent 1px);
+    linear-gradient(rgba(236,241,232,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(236,241,232,.06) 1px,transparent 1px);
   background-size:48px 48px;
   -webkit-mask-image:radial-gradient(120% 92% at 50% 0%,#000 32%,transparent 80%);
           mask-image:radial-gradient(120% 92% at 50% 0%,#000 32%,transparent 80%);
   animation:gridPan 26s linear infinite;will-change:background-position}
 .hero-scan{position:absolute;left:-10%;right:-10%;height:34%;top:-34%;
-  background:linear-gradient(180deg,transparent,rgba(201,150,59,.10),transparent);
+  background:linear-gradient(180deg,transparent,rgba(201,255,61,.10),transparent);
   animation:scanDown 11s ease-in-out infinite;will-change:transform}
 .hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
-    radial-gradient(92% 72% at 50% 6%,transparent 36%,rgba(27,21,16,.55) 100%),
-    linear-gradient(180deg,rgba(27,21,16,.30),rgba(27,21,16,.68))}
+    radial-gradient(92% 72% at 50% 6%,transparent 36%,rgba(10,12,10,.55) 100%),
+    linear-gradient(180deg,rgba(10,12,10,.30),rgba(10,12,10,.68))}
 @keyframes auroraDrift{
   0%{transform:translate3d(-2%,-1%,0) scale(1.02)}
   50%{transform:translate3d(2%,1.5%,0) scale(1.08)}
@@ -224,14 +226,14 @@ em{font-style:normal}
 .hero-stats{display:flex;gap:clamp(24px,5vw,46px);justify-content:center;flex-wrap:wrap;margin-top:42px}
 .hstat{text-align:center;min-width:120px}
 .hstat .hnum{display:flex;align-items:baseline;justify-content:center;gap:2px;line-height:1}
-.hstat .num{font-family:var(--disp);font-weight:800;font-size:clamp(1.8rem,3.2vw,2.5rem);color:var(--brass);letter-spacing:-.025em;font-variant-numeric:tabular-nums}
-.hstat .unit{font-family:var(--disp);font-weight:800;font-size:clamp(1.4rem,2.4vw,1.9rem);color:var(--brass);letter-spacing:-.02em}
+.hstat .num{font-family:var(--disp);font-weight:700;font-size:clamp(1.8rem,3.2vw,2.5rem);color:var(--brass);letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+.hstat .unit{font-family:var(--disp);font-weight:700;font-size:clamp(1.4rem,2.4vw,1.9rem);color:var(--brass);letter-spacing:-.02em}
 .hstat .lbl{display:block;margin:9px auto 0;font-size:.82rem;color:var(--cream-soft);max-width:17ch;line-height:1.35}
 
 /* --- product shot: float + glow halo --- */
 .shot .frame{animation:floaty 9s ease-in-out 1.4s infinite alternate}
 .shot::after{content:"";position:absolute;inset:6% 12% -8%;z-index:-1;border-radius:44px;
-  background:radial-gradient(60% 60% at 50% 50%,rgba(201,150,59,.20),transparent 70%);
+  background:radial-gradient(60% 60% at 50% 50%,rgba(201,255,61,.20),transparent 70%);
   filter:blur(34px);animation:glowPulse 7s ease-in-out infinite}
 @keyframes floaty{from{transform:translateY(0)}to{transform:translateY(-10px)}}
 @keyframes glowPulse{0%,100%{opacity:.45}50%{opacity:.9}}
@@ -250,25 +252,25 @@ em{font-style:normal}
 .console-sec{background:var(--stage-1);border-top:1px solid var(--hair-2);border-bottom:1px solid var(--hair-2)}
 .console{position:relative;max-width:980px;margin:8px auto 0}
 .console-glow{position:absolute;inset:-6% 4% -14%;z-index:0;border-radius:52px;
-  background:radial-gradient(60% 60% at 50% 38%,rgba(201,150,59,.22),transparent 70%);
+  background:radial-gradient(60% 60% at 50% 38%,rgba(201,255,61,.22),transparent 70%);
   filter:blur(44px);animation:glowPulse 8s ease-in-out infinite}
 .console-frame{position:relative;z-index:1;border-radius:14px;overflow:hidden;border:1px solid var(--hair);
   background:linear-gradient(180deg,var(--stage-2),var(--stage-1));
-  box-shadow:0 1px 0 rgba(239,232,214,.05),0 54px 96px -44px rgba(0,0,0,.85);
+  box-shadow:0 1px 0 rgba(236,241,232,.05),0 54px 96px -44px rgba(0,0,0,.85);
   animation:floaty 10s ease-in-out infinite alternate}
 .console-bar{display:flex;align-items:center;gap:7px;padding:13px 17px;background:var(--stage-2);border-bottom:1px solid var(--hair-2)}
 .console-bar i{width:11px;height:11px;border-radius:50%;background:var(--stage-3)}
 .console-bar span{margin-left:10px;font-family:var(--mono);font-size:.72rem;color:var(--cream-faint)}
 .console-bar .live{margin-left:auto;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.7rem;color:var(--verdigris);letter-spacing:.06em}
-.console-bar .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--verdigris);box-shadow:0 0 0 0 rgba(92,138,111,.6);animation:livePulse 2.4s ease-in-out infinite}
-@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(92,138,111,.55)}50%{box-shadow:0 0 0 5px rgba(92,138,111,0)}}
+.console-bar .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--verdigris);box-shadow:0 0 0 0 rgba(86,224,255,.6);animation:livePulse 2.4s ease-in-out infinite}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(86,224,255,.55)}50%{box-shadow:0 0 0 5px rgba(86,224,255,0)}}
 .console-body{display:grid;grid-template-columns:1.12fr .88fr;gap:1px;background:var(--hair-2)}
 .console-stats{background:var(--stage-1);padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:start}
 .cstat{background:var(--stage-2);border:1px solid var(--hair-2);border-radius:11px;padding:16px}
 .cstat.wide{grid-column:1 / -1}
 .cstat-h{font-family:var(--mono);font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-faint)}
 .cstat-h em{color:var(--verdigris);font-style:normal}
-.cstat-v{font-family:var(--disp);font-weight:800;font-size:1.85rem;letter-spacing:-.025em;margin-top:7px;color:var(--cream);font-variant-numeric:tabular-nums}
+.cstat-v{font-family:var(--disp);font-weight:700;font-size:1.85rem;letter-spacing:-.025em;margin-top:7px;color:var(--cream);font-variant-numeric:tabular-nums}
 .cstat-v .x{color:var(--brass)}
 .cstat-bar{height:8px;border-radius:6px;background:var(--stage-3);margin-top:13px;overflow:hidden}
 .cstat-bar i{display:block;height:100%;width:var(--w,80%);border-radius:6px;background:linear-gradient(90deg,var(--brass-2),var(--brass));animation:barfill 1.7s 1.3s cubic-bezier(.2,.7,.2,1) both}
@@ -290,11 +292,11 @@ em{font-style:normal}
 .feed-list li.ok .dot{background:var(--verdigris)}
 .feed-list li.warn .dot{background:var(--brass)}
 .feed-list li.blocked .dot{background:var(--wine)}
-.feed-list li.blocked{border-color:rgba(154,58,64,.42);background:rgba(154,58,64,.10);animation:feedin .55s 1.95s both,blockPulse 3.4s 3s ease-in-out infinite}
+.feed-list li.blocked{border-color:rgba(255,77,82,.42);background:rgba(255,77,82,.10);animation:feedin .55s 1.95s both,blockPulse 3.4s 3s ease-in-out infinite}
 .feed-list li:nth-child(1){animation-delay:1.5s}
 .feed-list li:nth-child(2){animation-delay:1.72s}
 @keyframes feedin{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
-@keyframes blockPulse{0%,100%{box-shadow:0 0 0 0 rgba(154,58,64,0)}50%{box-shadow:0 0 0 3px rgba(154,58,64,.20)}}
+@keyframes blockPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,77,82,0)}50%{box-shadow:0 0 0 3px rgba(255,77,82,.20)}}
 /* floating cards over the console */
 .float-card{position:absolute;z-index:2;background:var(--paper);color:var(--ink);border-radius:13px;padding:14px 16px;box-shadow:0 26px 54px -20px rgba(0,0,0,.7);width:250px}
 .fc-whats{right:-16px;top:58px;animation:floatA 6.5s ease-in-out infinite}
@@ -304,11 +306,11 @@ em{font-style:normal}
 .fc-whats .ico{background:#25D366;color:#fff}
 .fc-block .ico{background:var(--wine);color:#fff}
 .fc-msgs{position:relative;min-height:50px;margin-top:9px}
-.fc-msg{position:absolute;inset:0;color:#5a5044;font-size:.8rem;line-height:1.4;opacity:0;animation:swap 9s infinite}
+.fc-msg{position:absolute;inset:0;color:#5A6356;font-size:.8rem;line-height:1.4;opacity:0;animation:swap 9s infinite}
 .fc-msg:nth-child(2){animation-delay:4.5s}
 @keyframes swap{0%{opacity:0;transform:translateY(6px)}6%,44%{opacity:1;transform:none}50%,100%{opacity:0;transform:translateY(-6px)}}
-.fc-block p{margin-top:8px;color:#5a5044;font-size:.8rem;line-height:1.42}
-.fc-block .amt{font-family:var(--disp);font-weight:800;color:var(--wine);font-size:1.05rem}
+.fc-block p{margin-top:8px;color:#5A6356;font-size:.8rem;line-height:1.42}
+.fc-block .amt{font-family:var(--disp);font-weight:700;color:var(--wine);font-size:1.05rem}
 @keyframes floatA{0%,100%{transform:translateY(0) rotate(.5deg)}50%{transform:translateY(-13px) rotate(.5deg)}}
 @keyframes floatB{0%,100%{transform:translateY(0) rotate(-.7deg)}50%{transform:translateY(11px) rotate(-.7deg)}}
 
@@ -346,12 +348,12 @@ em{font-style:normal}
    SITE-WIDE GOLDEN DUST BACKGROUND + cinematic photo accents
    Live canvas particles · CSS photos degrade gracefully if file is absent
    ====================================================================== */
-.site-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:#160F09}
+.site-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:#070907}
 .site-bg-base{position:absolute;inset:0;
   background:
-    radial-gradient(58% 68% at 16% 20%,rgba(201,150,59,.18),transparent 60%),
-    radial-gradient(54% 64% at 86% 84%,rgba(168,120,42,.12),transparent 64%),
-    linear-gradient(180deg,#1B1510,#140E08 58%,#100B06)}
+    radial-gradient(58% 68% at 16% 20%,rgba(201,255,61,.18),transparent 60%),
+    radial-gradient(54% 64% at 86% 84%,rgba(166,230,44,.12),transparent 64%),
+    linear-gradient(180deg,#0A0C0A,#080A07 58%,#060806)}
 /* optional photo texture: drop your golden-dust photo at assets/golden-dust.jpg */
 .site-bg-img{position:absolute;inset:-8%;
   background:url('assets/golden-dust.jpg') center/cover no-repeat;
@@ -359,15 +361,15 @@ em{font-style:normal}
   animation:dustDrift 52s ease-in-out infinite alternate;will-change:transform}
 .site-bg-dust{position:absolute;inset:0;width:100%;height:100%;display:block}
 .site-bg-veil{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(125% 100% at 50% -5%,transparent 52%,rgba(16,11,6,.55) 100%)}
+  background:radial-gradient(125% 100% at 50% -5%,transparent 52%,rgba(6,8,6,.55) 100%)}
 @keyframes dustDrift{
   0%{transform:scale(1.05) translate3d(-1.6%,-1.2%,0)}
   100%{transform:scale(1.13) translate3d(1.6%,1.4%,0)}}
 
 /* let the dust whisper through the previously-opaque sections */
-.virada,.vault,.console-sec{background:rgba(33,26,19,.82)}
-.marquee{background:rgba(33,26,19,.78)}
-footer{background:rgba(33,26,19,.9)}
+.virada,.vault,.console-sec{background:rgba(17,20,15,.82)}
+.marquee{background:rgba(17,20,15,.78)}
+footer{background:rgba(17,20,15,.9)}
 
 /* cinematic photo accents — CSS backgrounds, so a missing file just shows nothing */
 .has-accent{position:relative;overflow:hidden}
@@ -394,7 +396,7 @@ footer{background:rgba(33,26,19,.9)}
 .band.has-accent{padding-top:120px;padding-bottom:120px}
 .accent-stage{background:url('assets/stage.jpg') center/cover;opacity:.46}
 .accent-stage::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(16,11,6,.6),rgba(16,11,6,.42) 40%,rgba(16,11,6,.82))}
+  background:linear-gradient(180deg,rgba(6,8,6,.6),rgba(6,8,6,.42) 40%,rgba(6,8,6,.82))}
 @media (min-width:901px){.accent-stage{background-attachment:fixed}}
 
 @media (prefers-reduced-motion:reduce){
@@ -424,7 +426,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,de
 
 /* primary button: warm brass glow */
 .btn-primary{box-shadow:0 10px 26px -10px var(--brass-glow)}
-.btn-primary:hover{box-shadow:0 12px 30px -6px rgba(201,150,59,.5)}
+.btn-primary:hover{box-shadow:0 12px 30px -6px rgba(201,255,61,.5)}
 
 /* barline divider — a brass barline crossing a hairline staff */
 .barline-sep{position:relative;height:1px;background:var(--hair-2);width:calc(100% - 56px);max-width:1180px;margin:0 auto}
@@ -433,7 +435,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,de
 
 /* governance callout near the hero */
 .callout-band{border-top:1px solid var(--hair-2);border-bottom:1px solid var(--hair-2);
-  background:rgba(33,26,19,.55);padding:22px 0}
+  background:rgba(17,20,15,.55);padding:22px 0}
 .callout{text-align:center;font-family:var(--disp);font-weight:700;
   font-size:clamp(1.1rem,2.3vw,1.55rem);letter-spacing:-.015em}
 .callout span{color:var(--cream-soft)}
@@ -464,6 +466,17 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,de
 .testi-card .who{margin-top:18px;font-family:var(--mono);font-size:.78rem;color:var(--cream-faint)}
 .testi-card .who b{display:block;color:var(--cream-soft);font-family:var(--disp);font-weight:700;font-size:.95rem;margin-bottom:2px}
 @media (max-width:900px){.testi-grid{grid-template-columns:1fr}}
+
+/* ======================================================================
+   SIGNAL reskin — cool the warm photography to fit the lime/near-black
+   palette, recolor dust to lime (done in JS/gradients), button glow
+   ====================================================================== */
+.site-bg-img{filter:hue-rotate(68deg) saturate(.55) brightness(1.05)}
+.hero-photo{filter:grayscale(.5) brightness(.9) contrast(1.04)}
+.accent-violin,.accent-metro{filter:grayscale(.62) contrast(1.06)}
+.accent-stage{filter:grayscale(.5) brightness(.95)}
+.btn-primary{box-shadow:0 0 0 1px var(--brass),0 8px 30px -8px var(--brass-glow)}
+.btn-primary:hover{box-shadow:0 0 0 1px var(--brass),0 10px 34px -6px rgba(201,255,61,.5)}
 </style>
 <script>
   /* enable scroll-reveal only when motion is welcome; otherwise content is shown as-is */
@@ -483,11 +496,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,de
   <div class="wrap">
     <a class="logo" href="#top">
       <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-        <line x1="3" y1="8" x2="23" y2="8" stroke="#C9963B" stroke-width="1" opacity=".4"/>
-        <line x1="3" y1="13" x2="23" y2="13" stroke="#C9963B" stroke-width="1" opacity=".4"/>
-        <line x1="3" y1="18" x2="23" y2="18" stroke="#C9963B" stroke-width="1" opacity=".4"/>
-        <line x1="6" y1="21" x2="20" y2="5" stroke="#EFE8D6" stroke-width="2.4" stroke-linecap="round"/>
-        <circle cx="20" cy="5" r="2.6" fill="#C9963B"/>
+        <line x1="3" y1="8" x2="23" y2="8" stroke="#C9FF3D" stroke-width="1" opacity=".4"/>
+        <line x1="3" y1="13" x2="23" y2="13" stroke="#C9FF3D" stroke-width="1" opacity=".4"/>
+        <line x1="3" y1="18" x2="23" y2="18" stroke="#C9FF3D" stroke-width="1" opacity=".4"/>
+        <line x1="6" y1="21" x2="20" y2="5" stroke="#ECF1E8" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="20" cy="5" r="2.6" fill="#C9FF3D"/>
       </svg>
       <span class="nm">Bato<b>n</b></span>
     </a>
@@ -659,8 +672,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,de
               <div class="cstat-v"><span class="num" data-to="2.8" data-dec="1">0</span><span class="x">×</span></div>
               <svg class="spark" viewBox="0 0 200 42" preserveAspectRatio="none" aria-hidden="true">
                 <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#C9963B" stop-opacity=".34"/>
-                  <stop offset="1" stop-color="#C9963B" stop-opacity="0"/>
+                  <stop offset="0" stop-color="#C9FF3D" stop-opacity=".34"/>
+                  <stop offset="1" stop-color="#C9FF3D" stop-opacity="0"/>
                 </linearGradient></defs>
                 <path class="area" fill="url(#sg)" d="M0,32 L25,28 L50,30 L75,21 L100,23 L125,15 L150,17 L175,9 L200,7 L200,42 L0,42 Z"/>
                 <path class="line" d="M0,32 L25,28 L50,30 L75,21 L100,23 L125,15 L150,17 L175,9 L200,7"/>
@@ -710,24 +723,24 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,de
             <div class="dyn">fff<small>BEYOND THE BAR</small></div>
           </div>
           <svg class="svgstave" viewBox="0 0 520 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="#C9BEA3" stroke-width="1">
+            <g stroke="#AEB8A6" stroke-width="1">
               <line x1="14" y1="35" x2="506" y2="35"/><line x1="14" y1="52" x2="506" y2="52"/>
               <line x1="14" y1="69" x2="506" y2="69"/><line x1="14" y1="86" x2="506" y2="86"/>
               <line x1="14" y1="103" x2="506" y2="103"/>
             </g>
-            <g font-family="Schibsted Grotesk, sans-serif" font-style="normal" font-weight="800" fill="#6b6051" opacity=".5" font-size="20">
+            <g font-family="Clash Display, sans-serif" font-style="normal" font-weight="800" fill="#5A6356" opacity=".5" font-size="20">
               <text x="60" y="76">pp</text><text x="150" y="76">p</text><text x="235" y="76">mf</text><text x="320" y="76">f</text><text x="395" y="76">ff</text>
             </g>
             <!-- no-go zone -->
-            <rect x="430" y="22" width="76" height="94" fill="#9A3A40" opacity=".10"/>
+            <rect x="430" y="22" width="76" height="94" fill="#FF4D52" opacity=".10"/>
             <!-- fff barline = ceiling -->
-            <line x1="430" y1="20" x2="430" y2="118" stroke="#C9963B" stroke-width="3"/>
-            <text x="430" y="14" text-anchor="middle" font-family="Schibsted Grotesk, sans-serif" font-style="normal" font-weight="800" font-size="18" fill="#A8782A">fff</text>
+            <line x1="430" y1="20" x2="430" y2="118" stroke="#C9FF3D" stroke-width="3"/>
+            <text x="430" y="14" text-anchor="middle" font-family="Clash Display, sans-serif" font-style="normal" font-weight="800" font-size="18" fill="#A6E62C">fff</text>
             <!-- spent tick -->
-            <line x1="372" y1="46" x2="372" y2="92" stroke="#6b6051" stroke-width="2" opacity=".35"/>
+            <line x1="372" y1="46" x2="372" y2="92" stroke="#5A6356" stroke-width="2" opacity=".35"/>
             <!-- note past the barline -->
-            <circle cx="452" cy="69" r="10" fill="#9A3A40" stroke="#ECE5D3" stroke-width="2"/>
-            <line x1="462" y1="69" x2="462" y2="40" stroke="#9A3A40" stroke-width="2"/>
+            <circle cx="452" cy="69" r="10" fill="#FF4D52" stroke="#ECF1E8" stroke-width="2"/>
+            <line x1="462" y1="69" x2="462" y2="40" stroke="#FF4D52" stroke-width="2"/>
           </svg>
           <div class="read">Blocked: would hit $1,240.00, beyond the $1,200.00 ceiling. Headroom: $160.00.</div>
         </div>
@@ -754,8 +767,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,de
         <h2 class="kh">Stop adding up what was <b>counted twice</b>.</h2>
         <p class="ksub">Google and Meta each claim the same sale. Adding the dashboards inflates ROAS and skews your call. Baton unifies everything in one place, removes the duplicate by transaction, and hands you the number no single-platform MCP can: the real one.</p>
         <div style="margin-top:24px;display:flex;gap:28px;flex-wrap:wrap">
-          <div><div class="mono" style="font-size:.72rem;color:var(--cream-faint);letter-spacing:.1em">ADDING THE DASHBOARDS</div><div class="disp" style="font-weight:800;font-size:2.2rem;color:var(--cream-faint);text-decoration:line-through;letter-spacing:-.02em">3.9×</div></div>
-          <div><div class="mono" style="font-size:.72rem;color:var(--verdigris);letter-spacing:.1em">REAL ROAS · DEDUP</div><div class="disp" style="font-weight:800;font-size:2.2rem;color:var(--verdigris);letter-spacing:-.02em"><span class="num" data-to="2.8" data-dec="1">0</span>×</div></div>
+          <div><div class="mono" style="font-size:.72rem;color:var(--cream-faint);letter-spacing:.1em">ADDING THE DASHBOARDS</div><div class="disp" style="font-weight:700;font-size:2.2rem;color:var(--cream-faint);text-decoration:line-through;letter-spacing:-.02em">3.9×</div></div>
+          <div><div class="mono" style="font-size:.72rem;color:var(--verdigris);letter-spacing:.1em">REAL ROAS · DEDUP</div><div class="disp" style="font-weight:700;font-size:2.2rem;color:var(--verdigris);letter-spacing:-.02em"><span class="num" data-to="2.8" data-dec="1">0</span>×</div></div>
         </div>
       </div>
       <div class="frame">
@@ -892,10 +905,10 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,de
       <div class="fcol fbrand">
         <a class="logo" href="#top">
           <svg width="24" height="24" viewBox="0 0 26 26" fill="none" aria-hidden="true">
-            <line x1="6" y1="21" x2="20" y2="5" stroke="#EFE8D6" stroke-width="2.4" stroke-linecap="round"/>
-            <circle cx="20" cy="5" r="2.6" fill="#C9963B"/>
+            <line x1="6" y1="21" x2="20" y2="5" stroke="#ECF1E8" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="20" cy="5" r="2.6" fill="#C9FF3D"/>
           </svg>
-          <span class="nm" style="font-family:var(--disp);font-weight:800;font-size:1.2rem">Bato<b style="color:var(--brass)">n</b></span>
+          <span class="nm" style="font-family:var(--disp);font-weight:700;font-size:1.2rem">Bato<b style="color:var(--brass)">n</b></span>
         </a>
         <p>The conducting layer above the official ad MCPs. The agent plays; you hold the baton.</p>
       </div>
@@ -1010,9 +1023,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,de
 
   function dot(p, alpha){
     var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
-    g.addColorStop(0, 'rgba(248,228,168,' + alpha + ')');
-    g.addColorStop(0.5, 'rgba(208,160,72,' + (alpha * 0.7) + ')');
-    g.addColorStop(1, 'rgba(201,150,59,0)');
+    g.addColorStop(0, 'rgba(225,255,170,' + alpha + ')');
+    g.addColorStop(0.5, 'rgba(166,230,44,' + (alpha * 0.7) + ')');
+    g.addColorStop(1, 'rgba(201,255,61,0)');
     ctx.fillStyle = g;
     ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
   }
