@@ -24,7 +24,7 @@
   --ink:#221C14;
   --brass:#C9963B; --brass-2:#A8782A; --brass-glow:rgba(201,150,59,.16);
   --wine:#9A3A40; --verdigris:#5C8A6F;
-  --cream:#EFE8D6; --cream-soft:#B0A488; --cream-faint:#776B57;
+  --cream:#EFE8D6; --cream-soft:#B0A488; --cream-faint:#998B70;
   --hair:rgba(239,232,214,.12); --hair-2:rgba(239,232,214,.07);
   --disp:'Schibsted Grotesk',system-ui,sans-serif;
   --body:'Hanken Grotesk',system-ui,sans-serif;
@@ -400,6 +400,70 @@ footer{background:rgba(33,26,19,.9)}
 @media (prefers-reduced-motion:reduce){
   .site-bg-img{animation:none}
 }
+
+/* ======================================================================
+   PART B — visual polish (a11y focus, hero grain + staff motif, glow,
+   barline dividers)  ·  PART C — new sections
+   ====================================================================== */
+/* a11y: visible brass focus ring (contrast fix handled via --cream-faint) */
+a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,details:focus-visible{
+  outline:2px solid var(--brass);outline-offset:3px;border-radius:6px}
+
+/* hero: ~5% film grain over the espresso */
+.hero-noise{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* hero: faint staff + barlines behind the headline (~6% ivory) */
+.hero-staff{position:absolute;left:50%;top:92px;transform:translateX(-50%);
+  width:min(720px,86vw);height:172px;z-index:0;pointer-events:none;opacity:.06;
+  background-image:
+    linear-gradient(var(--cream) 1px,transparent 1px),
+    linear-gradient(90deg,var(--cream) 2px,transparent 2px);
+  background-size:100% 30px,236px 100%;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent)}
+
+/* primary button: warm brass glow */
+.btn-primary{box-shadow:0 10px 26px -10px var(--brass-glow)}
+.btn-primary:hover{box-shadow:0 12px 30px -6px rgba(201,150,59,.5)}
+
+/* barline divider — a brass barline crossing a hairline staff */
+.barline-sep{position:relative;height:1px;background:var(--hair-2);width:calc(100% - 56px);max-width:1180px;margin:0 auto}
+.barline-sep::after{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:2px;height:17px;background:var(--brass);opacity:.6;box-shadow:6px 0 0 0 var(--brass)}
+
+/* governance callout near the hero */
+.callout-band{border-top:1px solid var(--hair-2);border-bottom:1px solid var(--hair-2);
+  background:rgba(33,26,19,.55);padding:22px 0}
+.callout{text-align:center;font-family:var(--disp);font-weight:700;
+  font-size:clamp(1.1rem,2.3vw,1.55rem);letter-spacing:-.015em}
+.callout span{color:var(--cream-soft)}
+.callout b{color:var(--brass)}
+
+/* integrations strip — desaturated wordmarks, brighten on hover */
+.integ-grid{display:flex;flex-direction:column;gap:20px;max-width:900px;margin:0 auto}
+.integ-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
+.integ-cap{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--cream-faint);min-width:100px;text-align:right}
+.integ-logos{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.integ-logo{font-family:var(--disp);font-weight:700;font-size:.98rem;letter-spacing:-.01em;color:var(--cream-soft);
+  border:1px solid var(--hair-2);border-radius:9px;padding:9px 15px;background:var(--stage-1);
+  filter:saturate(.25);opacity:.78;transition:.2s}
+.integ-logo:hover{filter:none;opacity:1;color:var(--cream);border-color:var(--brass-2);transform:translateY(-2px)}
+.integ-note{text-align:center;margin-top:28px;font-family:var(--mono);font-size:.8rem;
+  color:var(--cream-faint);letter-spacing:.02em}
+@media (max-width:560px){.integ-cap{min-width:0;width:100%;text-align:center}}
+
+/* testimonials scaffold */
+.testi-empty{text-align:center;max-width:540px;margin:0 auto;padding:36px 28px;
+  border:1px dashed var(--hair);border-radius:14px;background:var(--stage-1)}
+.testi-empty .badge2{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.testi-empty p{margin-top:12px;color:var(--cream-soft);font-size:1rem}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.testi-card{background:var(--stage-1);border:1px solid var(--hair-2);border-radius:13px;padding:26px 24px}
+.testi-card .q{font-size:1rem;color:var(--cream);line-height:1.6}
+.testi-card .who{margin-top:18px;font-family:var(--mono);font-size:.78rem;color:var(--cream-faint)}
+.testi-card .who b{display:block;color:var(--cream-soft);font-family:var(--disp);font-weight:700;font-size:.95rem;margin-bottom:2px}
+@media (max-width:900px){.testi-grid{grid-template-columns:1fr}}
 </style>
 <script>
   /* enable scroll-reveal only when motion is welcome; otherwise content is shown as-is */
@@ -443,15 +507,17 @@ footer{background:rgba(33,26,19,.9)}
 <header class="hero">
   <div class="hero-bg" aria-hidden="true">
     <div class="hero-photo"></div>
+    <div class="hero-staff"></div>
     <div class="hero-aurora"></div>
     <div class="hero-grid"></div>
     <div class="hero-scan"></div>
+    <div class="hero-noise"></div>
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="wrap">
     <span class="eyebrow">AI ad conducting</span>
     <h1 class="h1">The agent plays.<br><b>You hold the baton.</b></h1>
-    <p class="lede">The conducting layer above the official ad MCPs. You set the ceiling the AI can't cross — and finally see your <b>real ROAS</b>, with no double-counting across Google, Meta, and TikTok.</p>
+    <p class="lede">The conducting layer above the official ad MCPs. You set the ceiling the AI can't cross — and finally see your <b>real ROAS</b>, with no double-counting across Google, Meta, TikTok, and LinkedIn.</p>
     <div class="hero-cta">
       <a class="btn btn-primary btn-lg" href="#valores">Start free</a>
       <a class="btn btn-ghost btn-lg" href="#cofre">See the Vault in action</a>
@@ -459,7 +525,7 @@ footer{background:rgba(33,26,19,.9)}
     <div class="hero-note">No card to try · connects via official OAuth · GDPR-ready</div>
 
     <div class="hero-stats reveal">
-      <div class="hstat"><div class="hnum"><span class="num" data-to="3">0</span></div><span class="lbl">platforms, one baton</span></div>
+      <div class="hstat"><div class="hnum"><span class="num" data-to="4">0</span></div><span class="lbl">platforms, one baton</span></div>
       <div class="hstat"><div class="hnum"><span class="num" data-to="2.8" data-dec="1">0</span><span class="unit">×</span></div><span class="lbl">real ROAS, deduplicated</span></div>
       <div class="hstat"><div class="hnum"><span class="num" data-to="100">0</span><span class="unit">%</span></div><span class="lbl">of the ceiling, always held</span></div>
     </div>
@@ -474,10 +540,14 @@ footer{background:rgba(33,26,19,.9)}
   </div>
 </header>
 
+<div class="callout-band">
+  <div class="wrap"><p class="callout"><span>Access is now free.</span> <b>Control isn't.</b></p></div>
+</div>
+
 <div class="marquee" aria-label="Baton platforms and features">
   <div class="marquee-track">
-    <span class="chip">Google Ads</span><span class="chip">Meta Ads</span><span class="chip">TikTok Ads</span><span class="chip">Budget Vault</span><span class="chip">Real ROAS</span><span class="chip">Cross-platform dedup</span><span class="chip">Proactive agent</span><span class="chip">WhatsApp</span><span class="chip">Slack</span><span class="chip">Stripe</span><span class="chip">Auditable black box</span><span class="chip">GDPR-ready</span><span class="chip">Official OAuth</span>
-    <span class="chip">Google Ads</span><span class="chip">Meta Ads</span><span class="chip">TikTok Ads</span><span class="chip">Budget Vault</span><span class="chip">Real ROAS</span><span class="chip">Cross-platform dedup</span><span class="chip">Proactive agent</span><span class="chip">WhatsApp</span><span class="chip">Slack</span><span class="chip">Stripe</span><span class="chip">Auditable black box</span><span class="chip">GDPR-ready</span><span class="chip">Official OAuth</span>
+    <span class="chip">Google Ads</span><span class="chip">Meta Ads</span><span class="chip">TikTok Ads</span><span class="chip">LinkedIn Ads</span><span class="chip">Budget Vault</span><span class="chip">Real ROAS</span><span class="chip">Cross-platform dedup</span><span class="chip">Proactive agent</span><span class="chip">WhatsApp</span><span class="chip">Slack</span><span class="chip">Stripe</span><span class="chip">Auditable black box</span><span class="chip">GDPR-ready</span><span class="chip">Official OAuth</span>
+    <span class="chip">Google Ads</span><span class="chip">Meta Ads</span><span class="chip">TikTok Ads</span><span class="chip">LinkedIn Ads</span><span class="chip">Budget Vault</span><span class="chip">Real ROAS</span><span class="chip">Cross-platform dedup</span><span class="chip">Proactive agent</span><span class="chip">WhatsApp</span><span class="chip">Slack</span><span class="chip">Stripe</span><span class="chip">Auditable black box</span><span class="chip">GDPR-ready</span><span class="chip">Official OAuth</span>
   </div>
 </div>
 
@@ -498,6 +568,54 @@ footer{background:rgba(33,26,19,.9)}
   </div>
 </section>
 
+<section class="sec integ-sec" id="integrations">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Integrations</span>
+      <h2 class="kh">Plays with the <b>pipes</b> you already use</h2>
+      <p class="ksub">Baton sits above the official MCPs — and the AI clients you already talk to.</p>
+    </div>
+    <div class="integ-grid reveal">
+      <div class="integ-row">
+        <span class="integ-cap">Ad platforms</span>
+        <div class="integ-logos">
+          <span class="integ-logo">Google Ads</span>
+          <span class="integ-logo">Meta Ads</span>
+          <span class="integ-logo">TikTok Ads</span>
+          <span class="integ-logo">LinkedIn Ads</span>
+        </div>
+      </div>
+      <div class="integ-row">
+        <span class="integ-cap">AI clients</span>
+        <div class="integ-logos">
+          <span class="integ-logo">ChatGPT</span>
+          <span class="integ-logo">Claude</span>
+          <span class="integ-logo">Gemini</span>
+          <span class="integ-logo">Cursor</span>
+        </div>
+      </div>
+    </div>
+    <p class="integ-note reveal">Connects via each platform's official OAuth — Baton never touches your media budget.</p>
+  </div>
+</section>
+
+<div class="barline-sep" aria-hidden="true"></div>
+
+<section class="sec howto-sec" id="how">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Onboarding</span>
+      <h2 class="kh">How it works in <b>three steps</b></h2>
+      <p class="ksub">From connected to conducting in minutes. No code, no agency.</p>
+    </div>
+    <div class="shift reveal stagger">
+      <div class="cell"><div class="n">STEP 1</div><h4>Connect</h4><p>Link your ad accounts through each platform's official OAuth — one click, no credentials shared.</p></div>
+      <div class="cell"><div class="n">STEP 2</div><h4>Set the ceiling</h4><p>Open the Vault and set the maximum the agent can never cross. The bar line is math, not a suggestion.</p></div>
+      <div class="cell"><div class="n">STEP 3</div><h4>Conduct</h4><p>Talk to the agent in plain English. It plays inside the bar; you hold the baton.</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec has-accent" id="movimentos">
   <div class="accent accent-metro" aria-hidden="true"></div>
   <div class="wrap">
@@ -508,7 +626,7 @@ footer{background:rgba(33,26,19,.9)}
     </div>
     <div class="moves reveal stagger">
       <div class="move"><div class="rn">I</div><h3>Budget Vault</h3><p>A ceiling the agent can't cross. Not a warning — the bar line. It stops on the beat.</p></div>
-      <div class="move"><div class="rn">II</div><h3>Cross-platform conducting</h3><p>Unifies Google, Meta, and TikTok, deduplicates double-counted conversions, and shows your true ROAS.</p></div>
+      <div class="move"><div class="rn">II</div><h3>Cross-platform conducting</h3><p>Unifies Google, Meta, TikTok, and LinkedIn, deduplicates double-counted conversions, and shows your true ROAS.</p></div>
       <div class="move"><div class="rn">III</div><h3>Proactive agent</h3><p>Spots spend anomalies, creative fatigue, and pacing off the rails — and pings you on WhatsApp or Slack before the damage.</p></div>
       <div class="move"><div class="rn">IV</div><h3>Simulate before you spend</h3><p>Every change becomes an approvable plan. Read the diff and give the downbeat before a single dollar moves.</p></div>
       <div class="move"><div class="rn">V</div><h3>Auditable black box</h3><p>A signed, chained, reversible trail. Ready for client audits and GDPR demands.</p></div>
@@ -646,6 +764,33 @@ footer{background:rgba(33,26,19,.9)}
     </div>
   </div>
 </section>
+
+<section class="sec" id="who">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Who it's for</span>
+      <h2 class="kh">Built for whoever holds the <b>baton</b></h2>
+      <p class="ksub">Same governance, three very different desks.</p>
+    </div>
+    <div class="moves reveal stagger">
+      <div class="move"><div class="rn">Agencies</div><h3>Many accounts, one baton</h3><p>Conduct dozens of client accounts with team approvals and a reversible audit trail per client.</p></div>
+      <div class="move"><div class="rn">Founders / solo</div><h3>Pro control, no agency</h3><p>Run your own media with a hard ceiling and real ROAS — a specialist's grip without the retainer.</p></div>
+      <div class="move"><div class="rn">In-house teams</div><h3>A ceiling stakeholders trust</h3><p>A mathematical budget cap plus an immutable audit trail your finance and legal teams can sign off on.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec testi-sec" id="voices">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Voices from the pit</span>
+      <h2 class="kh">What conductors <b>say</b></h2>
+    </div>
+    <div class="reveal" id="testimonials"></div>
+  </div>
+</section>
+
+<div class="barline-sep" aria-hidden="true"></div>
 
 <section class="virada sec" id="valores">
   <div class="wrap">
@@ -908,6 +1053,37 @@ footer{background:rgba(33,26,19,.9)}
   document.addEventListener('visibilitychange', function(){
     if(document.hidden) stop(); else if(!reduce) start();
   });
+})();
+</script>
+
+<script>
+/* ── Testimonials ──────────────────────────────────────────────
+   Add REAL quotes only. Leave empty to show an honest empty-state.
+   Format: { quote:"…", name:"…", role:"…" }                        */
+var TESTIMONIALS = [
+  // { quote: "Baton caught a pacing blowout before it cost us a cent.", name: "—", role: "—" },
+];
+(function(){
+  var wrap = document.getElementById('testimonials');
+  if(!wrap) return;
+  if(!TESTIMONIALS.length){
+    wrap.innerHTML =
+      '<div class="testi-empty"><span class="badge2">Early access</span>' +
+      '<p>Quotes coming soon — we’d rather show none than invent any.</p></div>';
+    return;
+  }
+  var grid = document.createElement('div');
+  grid.className = 'testi-grid';
+  TESTIMONIALS.forEach(function(t){
+    var card = document.createElement('div'); card.className = 'testi-card';
+    var q = document.createElement('p'); q.className = 'q';
+    q.textContent = '“' + (t.quote || '') + '”';
+    var who = document.createElement('div'); who.className = 'who';
+    var b = document.createElement('b'); b.textContent = t.name || '';
+    who.appendChild(b); who.appendChild(document.createTextNode(t.role || ''));
+    card.appendChild(q); card.appendChild(who); grid.appendChild(card);
+  });
+  wrap.appendChild(grid);
 })();
 </script>
 
